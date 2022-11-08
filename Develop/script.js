@@ -3,13 +3,13 @@
 // https://www.freecodecamp.org/news/javascript-get-current-date-todays-date-in-js/
 const currentDayEl = $("#currentDay");
 const date = new Date();
-let day = date.getDate();
-let month = date.getMonth() + 1;
-let year = date.getFullYear();
+let day = dayjs().date();
+let month = dayjs().month() + 1;
+let year = dayjs().year();
 let currentDate = `${month}/${day}/${year}`;
 currentDayEl.text(currentDate);
 
-let hour = date.getHours();
+let hour = dayjs().hour();
 
 // Change background for past/present/future
 function changeBackground () {
