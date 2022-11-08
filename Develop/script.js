@@ -30,7 +30,11 @@ function changeBackground () {
 
 changeBackground ();
 
-// TODO: add class to change background color
+$( "button" ).click(function () {
+  console.log("button clicked!");
+});
+
+// TODO: add event listener on save buttons
 
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
