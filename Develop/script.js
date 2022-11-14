@@ -1,6 +1,6 @@
 
 // Display current date in the header
-// https://www.freecodecamp.org/news/javascript-get-current-date-todays-date-in-js/
+// https://day.js.org/docs/en/get-set/date
 const currentDayEl = $("#currentDay");
 const date = new Date();
 let day = dayjs().date();
@@ -30,11 +30,18 @@ function changeBackground () {
 
 changeBackground ();
 
-$( "button" ).click(function () {
-  console.log("button clicked!");
+// Grab the button's sibling on each hour block and
+// adds user input to local storage
+$("button").click(function () {
+  // https://api.jquery.com/siblings/
+  let description = $(this).siblings(".description").val();
+  // https://api.jquery.com/parent/#parent-selector
+  let descriptionTime = $(this).parent().attr("id");
+  localStorage.setItem(descriptionTime, description);
 });
 
-// TODO: add event listener on save buttons
+// TODO: create function that grabs local storage items
+// and displays it in the correct time block
 
 
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
