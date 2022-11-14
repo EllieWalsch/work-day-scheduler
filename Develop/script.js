@@ -17,6 +17,7 @@ function changeBackground () {
     // turns ID string into a number
     let hourBlock = parseInt($(this).attr("id"));
 
+    // compares current hour to ID hour
     if (hourBlock < hour) {
       $(this).addClass("past");
     } else if (hourBlock === hour) {
@@ -24,7 +25,6 @@ function changeBackground () {
     } else if (hourBlock > hour) {
       $(this).addClass("future");
     };
-
   });
 };
 
@@ -40,21 +40,26 @@ $("button").click(function () {
   localStorage.setItem(descriptionTime, description);
 });
 
-// TODO: create function that grabs local storage items
-// and displays it in the correct time block
+// Take local storage input and change description value
+function displayInput () {
+  let nineAM = localStorage.getItem("9");
+  $("#9 .description").val(nineAM);
+  let tenAM = localStorage.getItem("10");
+  $("#10 .description").val(tenAM);
+  let elevenAM = localStorage.getItem("11");
+  $("#11 .description").val(elevenAM);
+  let twelvePM = localStorage.getItem("12");
+  $("#12 .description").val(twelvePM);
+  let onePM = localStorage.getItem("13");
+  $("#13 .description").val(onePM);
+  let twoPM = localStorage.getItem("14");
+  $("#14 .description").val(twoPM);
+  let threePM = localStorage.getItem("15");
+  $("#15 .description").val(threePM);
+  let fourPM = localStorage.getItem("16");
+  $("#16 .description").val(fourPM);
+  let fivePM = localStorage.getItem("17");
+  $("#17 .description").val(fivePM);
+};
 
-
-// Wrap all code that interacts with the DOM in a call to jQuery to ensure that
-// the code isn't run until the browser has finished rendering all the elements
-// in the html.
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-
-  // TODO: Add code to get any user input that was saved in localStorage and set
-  // the values of the corresponding textarea elements. HINT: How can the id
-  // attribute of each time-block be used to do this?
-  //
+displayInput ();
